@@ -53,10 +53,13 @@ pnpm dev
 2. 限制了commit的方式，通过以下方式可以完成commit
 
     1. 安装 Git CZ Emoji， 在VS Code 源代码管理处提交
+    ![image-20220616170045-bropuyr.png](https://s2.loli.net/2022/06/16/GPjmCyRx2oDkV1Y.png)
 
        
+
     2. 安装 `commitizen` 在项目目录使用 `cz` 命令提交
 
         ```bash
         npm i -g commitizen
         ```
+        ![image-20220616170400-fsx4onj.png](https://s2.loli.net/2022/06/16/Tphgq9Cimdk3ZHR.png)
