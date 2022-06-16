@@ -43,7 +43,7 @@ module.exports = {
       { value: 'fix', name: 'fix:      修复缺陷 | A bug fix' },
       { value: 'docs', name: 'docs:     文档更新 | Documentation only changes' },
       { value: 'chore', name: 'chore:    其他修改 | Other changes that do not modify src or test files' },
-      { value: 'style', name: 'style:    代码风格调整 | Changes that do not affect the meaning of the code' },
+      { value: 'style', name: 'style:    修改样式 | Changes that do not affect the meaning of the code' },
       { value: 'refactor', name: 'refactor: 代码重构 | A code change that neither fixes a bug nor adds a feature' },
       { value: 'test', name: 'test:     测试相关 | Adding missing tests or correcting existing tests' },
       { value: 'build', name: 'build:    构建相关 | Changes that affect the build system or external dependencies' },
