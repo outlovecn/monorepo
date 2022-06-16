@@ -9,7 +9,7 @@
     "lint:fix": "pnpm eslint . --fix",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run",
     "testui": "vitest --ui"
   },
   "dependencies": {
