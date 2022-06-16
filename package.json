@@ -8,12 +8,14 @@
     "pnpm": ">=6"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm && husky install",
+    "preinstall": "npx only-allow pnpm -y",
+    "prepare": "husky install",
     "dev": "pnpm --filter '*' dev",
     "build": "pnpm --filter '*' build",
     "ch": "pnpm changeset",
     "chv": "pnpm changeset version",
-    "lint": "eslint .",
+    "lint": "pnpm eslint .",
+    "lint:fix": "pnpm eslint . --fix",
     "typecheck": "pnpm --filter '*' typecheck",
     "test": "pnpm --filter '*' test"
   },
@@ -29,7 +31,6 @@
     "eslint": "^8.17.0",
     "husky": "^8.0.1",
     "pnpm": "^7.2.1",
-    "simple-git-hooks": "^2.8.0",
     "typescript": "^4.7.3"
   },
   "eslintConfig": {
