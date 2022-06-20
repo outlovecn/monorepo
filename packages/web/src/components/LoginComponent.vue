@@ -5,9 +5,12 @@ const password = $ref('')
 let nextStep = $ref(false)
 
 const canGoNext = computed(() => name && password)
-const goNext = () => {
-  if (canGoNext)
+const goNext = async () => {
+  if (canGoNext) {
     nextStep = true
+    const { data } = await useFetch('api/login').post().json()
+    // console.log(data)
+  }
 }
 </script>
 
@@ -24,16 +27,16 @@ const goNext = () => {
 
   <div class="form">
     <div class="form-group">
-      <label for="name" class="form-group-label">Name</label>
+      <label for="name" class="form-group-label">账号</label>
       <input id="name" v-model="name" placeholder="What's your name?" autocomplete="false" class="form-group-input" type="text">
     </div>
     <div class="form-group">
-      <label for="password" class="form-group-label">Password</label>
+      <label for="password" class="form-group-label">密码</label>
       <input id="password" v-model="password" placeholder="Enter your password" autocomplete="false" class="form-group-input" type="password">
     </div>
     <div class="form-group">
       <button :disabled="!canGoNext" class="btn" @click="goNext()">
-        Next
+        登录
       </button>
     </div>
   </div>
