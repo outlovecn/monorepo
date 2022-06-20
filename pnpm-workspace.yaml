@@ -1,0 +1,5 @@
+packages:
+  # 根目录
+  - .
+  # 所有的包放在packages的子目录/
+  - 'packages/*'
