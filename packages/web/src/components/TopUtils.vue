@@ -1,4 +1,4 @@
-<script setup ts>
+<script setup lang="ts">
 const router = useRouter()
 const logout = () => {
   sessionStorage.removeItem('token')
@@ -8,7 +8,7 @@ const isHome = computed(() => router.currentRoute.value.path !== '/login')
 </script>
 
 <template>
-  <nav text-xl inline-flex gap-2 absolute top-6 right-6>
+  <nav text-xl inline-flex gap-2 absolute top-6 right-6 text-light>
     <button v-show="isHome" class="icon-btn !outline-nones" @click="logout()">
       <div i-carbon-power />
     </button>

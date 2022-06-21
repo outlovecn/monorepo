@@ -1,45 +1,21 @@
 <script setup lang="ts">
-const name = $ref('')
-const password = $ref('')
-const router = useRouter()
-
-const canGoNext = computed(() => name && password)
-const goNext = async () => {
-  if (canGoNext) {
-    const { data } = await useFetch('api/login').post().json()
-    const { token } = data.value
-    if (token) {
-      sessionStorage.token = token
-      router.push('/power/home')
-    }
-  }
-}
 </script>
 
 <template>
-  <div i-carbon-campsite text-4xl inline-block />
-  <p>
-    <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
-      Login
-    </a>
-  </p>
-  <p>
-    <em text-sm op75>Feathers</em>
-  </p>
-
-  <div class="form">
-    <div class="form-group">
-      <label for="name" class="form-group-label">账号</label>
-      <input id="name" v-model="name" placeholder="What's your name?" autocomplete="false" class="form-group-input" type="text">
-    </div>
-    <div class="form-group">
-      <label for="password" class="form-group-label">密码</label>
-      <input id="password" v-model="password" placeholder="Enter your password" autocomplete="false" class="form-group-input" type="password">
-    </div>
-    <div class="form-group">
-      <button :disabled="!canGoNext" class="form-group-button" @click="goNext()">
-        登录
-      </button>
+  <div class="container relative h-full py-2 mx-auto sm:px-10">
+    <div class="flex h-full">
+      <div class="flex w-full h-full py-5 xl:h-auto">
+        <div
+          class="bg-white relative w-sm px-5 py-8 mx-auto my-auto rounded-md shadow-md sm:px-8 xl:p-4 xl:shadow-none"
+        >
+          <LoginForm />
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: login
+</route>
