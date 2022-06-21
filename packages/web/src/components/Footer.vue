@@ -12,9 +12,9 @@ const isHome = computed(() => router.currentRoute.value.path !== '/login')
     <button v-show="isHome" class="icon-btn !outline-nones" @click="logout()">
       <div i-carbon-power />
     </button>
-    <button class="icon-btn !outline-none" @click="toggleDark()">
+    <!-- <button class="icon-btn !outline-none" @click="toggleDark()">
       <div i-carbon-sun dark:i-carbon-moon />
-    </button>
+    </button> -->
     <button class="icon-btn !outline-none" @click="toggleFullscreen()">
       <div i-carbon-replicate />
     </button>

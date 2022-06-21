@@ -10,7 +10,7 @@ const goNext = async () => {
     const { token } = data.value
     if (token) {
       sessionStorage.token = token
-      router.push('/')
+      router.push('/power/home')
     }
   }
 }

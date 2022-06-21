@@ -19,6 +19,9 @@
     "typecheck": "pnpm --filter '*' typecheck",
     "test": "pnpm --filter '*' test"
   },
+  "dependencies": {
+    "ant-design-vue": "^3.2.0"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",
     "@changesets/changelog-git": "^0.1.11",

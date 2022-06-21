@@ -15,8 +15,6 @@ export default defineConfig({
       mbox: 'px-4 py-1 rounded',
       mbtn: 'mbox inline-block cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50 disabled:text-white',
     },
-    // app主体
-    ['app-main', 'w-screen h-screen text-center font-sans px-4 py-10 text-gray-700 bg-white dark:bg-dark dark:text-gray-200'],
     // 表单
     ['form', 'flex items-center justify-center flex-col'],
     ['form-group', 'flex justify-center items-center px-4 py-2'],
@@ -24,9 +22,9 @@ export default defineConfig({
     ['form-group-input', 'mborder px-4 py-2 w-250px text-left bg-transparent outline-none active:outline-none'],
     ['form-group-button', 'mbox mbtn bg-teal-600 text-white hover:bg-teal-700 w-100%'],
     // 顶部导航
-    ['nav-bar', 'flex items-center justify-start'],
-    ['nav-bar-item', 'mbox mbtn w-6em mr-2 bg-teal-600 text-white hover:bg-teal-700'],
-    ['nav-bar-item-active', 'bg-teal-700'],
+    // ['nav-bar', 'flex items-center justify-start'],
+    // ['nav-bar-item', 'mbox mbtn w-6em mr-2 bg-teal-600 text-white hover:bg-teal-700'],
+    // ['nav-bar-item-active', 'bg-teal-700'],
 
   ],
   presets: [
