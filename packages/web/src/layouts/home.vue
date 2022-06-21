@@ -1,69 +1,79 @@
-<!-- <template>
-  <main>
-    <TopNav />
-    <router-view />
-    <div>home</div>
-  </main>
-</template> -->
-
 <script lang="ts" setup>
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons-vue'
+import DispatchSider from '~/components/DispatchSider/index.vue'
+import DispatchVoice from '~/components/DispatchVoice/index.vue'
+import DispatchArea from '~/components/DispatchArea/index.vue'
 
+import ContactSider from '~/components/ContactSider/index.vue'
+import ContactManage from '~/components/ContactManage/index.vue'
+import ContactScene from '~/components/ContactScene/index.vue'
+
+import MonitorSider from '~/components/MonitorSider/index.vue'
+import MonitorVideo from '~/components/MonitorVideo/index.vue'
+import MonitorRound from '~/components/MonitorRound/index.vue'
+import MonitorWall from '~/components/MonitorWall/index.vue'
+import MonitorPlayback from '~/components/MonitorPlayback/index.vue'
+
+import GisSider from '~/components/GisSider/index.vue'
+import GisMap from '~/components/GisMap/index.vue'
+
+const activeKey = ref(0)
+// 导航菜单
 const menus = [
-  {
-    name: '首页',
-    path: '/power/home',
-    views: [],
-  },
+  // {
+  //   name: '首页',
+  //   path: '/power/home',
+  //   views: [],
+  // },
   {
     name: '通讯调度',
     path: '/power/dispatch',
+    siderComponent: DispatchSider,
     views: [{
       name: '语音调度',
-      path: '/power/dispatch/voice',
+      component: DispatchVoice,
     }, {
       name: '通话区域',
-      path: '/power/dispatch/area',
+      component: DispatchArea,
     }],
   },
   {
     name: '场景会议',
     path: '/power/contact',
+    siderComponent: ContactSider,
     views: [{
       name: '会议管理',
-      path: '/power/contact/manage',
+      component: ContactManage,
     }, {
       name: '场景会议',
-      path: '/power/contact/scene',
+      component: ContactScene,
     }],
   },
   {
     name: '视频监控',
     path: '/power/monitor',
+    siderComponent: MonitorSider,
     views: [{
       name: '监控',
-      path: '/power/monitor/video',
+      component: MonitorVideo,
     }, {
       name: '轮巡',
-      path: '/power/monitor/round',
+      component: MonitorRound,
     }, {
       name: '电视墙',
-      path: '/power/monitor/wall',
+      component: MonitorWall,
     }, {
       name: '回放',
-      path: '/power/monitor/playback',
+      component: MonitorPlayback,
     }],
   },
   {
     name: '电子地图',
     path: '/power/gis',
-    views: [],
+    siderComponent: GisSider,
+    views: [{
+      name: '地图',
+      component: GisMap,
+    }],
   },
 ]
 interface item {
@@ -75,13 +85,32 @@ const defaultSelectedKeys = menus[0].path
 const selectedKeys = ref<string[]>([defaultSelectedKeys])
 const goto = (item: item) => {
   router.push(item.key)
+  activeKey.value = 0
 }
+// 侧边栏
+const siderWidth = '300'
+const selectedKey = computed(() => {
+  return selectedKeys.value[0]
+})
+const currentSidebar = computed(() => {
+  const item = menus.find(item => item.path === selectedKey.value)
+  return item ? item.siderComponent : ''
+})
+
+// Tab 区域
+const currentTabs = computed(() => {
+  return menus.find(item => item.path === selectedKey.value)?.views || []
+})
+const onlyOneTab = computed(() => {
+  return currentTabs.value.length === 1
+})
 </script>
 
 <template>
   <a-layout style="min-height: 100vh">
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
-      <div class="logo" />
+    <a-layout-sider v-model:collapsed="collapsed" collapsible :width="siderWidth">
+      <div class="home-logo" />
+      <component :is="currentSidebar" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
@@ -97,23 +126,31 @@ const goto = (item: item) => {
           </a-menu-item>
         </a-menu>
       </a-layout-header>
-      <a-layout-content style="margin: 16px">
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-          <router-view />
+      <a-layout-content>
+        <div class="p-sm">
+          <component :is="currentTabs[0].component" v-if="onlyOneTab" />
+          <a-tabs v-else v-model:activeKey="activeKey">
+            <a-tab-pane v-for="{ name, component }, i in currentTabs" :key="i" :tab="name">
+              <component :is="component" />
+            </a-tab-pane>
+          </a-tabs>
         </div>
       </a-layout-content>
-      <a-layout-footer style="text-align: center">
+      <!-- <a-layout-footer class="text-center home-footer">
         综合通信调度系统 ©2022 USC
-      </a-layout-footer>
+      </a-layout-footer> -->
     </a-layout>
   </a-layout>
 </template>
 
 <style>
-.logo {
+.home-logo {
   height: 32px;
   margin: 16px;
   background: rgba(255, 255, 255, 0.3);
+}
+.home-footer {
+  padding: 1em 0;
 }
 </style>
 
