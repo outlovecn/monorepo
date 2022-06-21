@@ -1,6 +1,5 @@
-## Repo monorepo样版
+## USC-WEB
 
-目标是做一个monorepo的样板，欢迎提出改进！PR！PR！PR！
 ### 文件结构简要说明
 
 * package （子项目目录
