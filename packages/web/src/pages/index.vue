@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const router = useRouter()
 const token = sessionStorage.token
+const router = useRouter()
 if (!token)
   router.push('/login')
 
@@ -11,5 +11,13 @@ if (!token)
 </script>
 
 <template>
-  <Counter :initial="777" />
+  <!-- <Counter :initial="777" /> -->
+  <div :style="`background: ${useRouter().currentRoute.value.meta.bgColor};`">
+    <router-view />
+  </div>
 </template>
+
+<route lang="yaml">
+meta:
+  layout: home
+</route>

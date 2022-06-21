@@ -16,7 +16,7 @@ export default defineConfig({
       mbtn: 'mbox inline-block cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50 disabled:text-white',
     },
 
-    ['app-main', 'font-sans px-4 py-10 text-gray-700 dark:text-gray-200 text-center'],
+    ['app-main', 'w-screen h-screen text-center font-sans px-4 py-10 text-gray-700 bg-white dark:text-gray-200 dark:bg-dark'],
     ['form', 'flex flex-col items-center justify-center'],
     ['form-group', 'flex justify-center items-center px-4 py-2'],
     ['form-group-label', 'mborder border-r-0 w-100px block px-4 py-2'],
