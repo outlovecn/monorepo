@@ -4,7 +4,7 @@
   "packageManager": "pnpm@7.1.5",
   "scripts": {
     "build": "vite build",
-    "dev": "vite --port 3333 --open",
+    "devs": "vite --port 3333 --open",
     "lint": "pnpm eslint .",
     "lint:fix": "pnpm eslint . --fix",
     "typecheck": "vue-tsc --noEmit",

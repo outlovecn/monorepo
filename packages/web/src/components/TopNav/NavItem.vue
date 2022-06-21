@@ -7,10 +7,20 @@ const router = useRouter()
 const goto = (path: string) => {
   router.push(path)
 }
+const className = computed(() => {
+  return {
+    'nav-bar-item-active': router.currentRoute.value.path === props.path,
+    'nav-bar-item': true,
+  }
+})
 </script>
 
 <template>
-  <div @click="goto(props.path)">
+  <div
+    :class="className"
+
+    @click="goto(props.path)"
+  >
     {{ props.name }}
   </div>
 </template>

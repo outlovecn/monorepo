@@ -37,7 +37,7 @@ const goNext = async () => {
       <input id="password" v-model="password" placeholder="Enter your password" autocomplete="false" class="form-group-input" type="password">
     </div>
     <div class="form-group">
-      <button :disabled="!canGoNext" class="btn" @click="goNext()">
+      <button :disabled="!canGoNext" class="form-group-button" @click="goNext()">
         登录
       </button>
     </div>

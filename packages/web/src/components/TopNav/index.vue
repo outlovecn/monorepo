@@ -24,12 +24,14 @@ const navitems = [
 </script>
 
 <template>
-  <NavItem
-    v-for="item of navitems"
-    :key="item.name"
-    :name="item.name"
-    :path="item.path"
-  />
+  <nav class="nav-bar">
+    <NavItem
+      v-for="item of navitems"
+      :key="item.name"
+      :name="item.name"
+      :path="item.path"
+    />
+  </nav>
 </template>
 
 <style scoped>
