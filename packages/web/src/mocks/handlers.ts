@@ -1,9 +1,12 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.post('api/login', (req, res, ctx) => {
+  rest.post('api/login', async (req, res, ctx) => {
     // Persist user's authentication in the session
     // sessionStorage.setItem('is-authenticated', 'true')
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1000)
+    })
     return res(
       // Respond with a 200 status code
       ctx.status(200),

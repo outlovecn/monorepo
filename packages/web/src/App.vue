@@ -1,6 +1,6 @@
 <template>
   <main>
     <router-view />
-    <Footer />
+    <TopUtils />
   </main>
 </template>
