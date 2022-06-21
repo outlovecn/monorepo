@@ -1,7 +1,7 @@
 import { rest } from 'msw'
 
 export const handlers = [
-  rest.post('/login', (req, res, ctx) => {
+  rest.post('api/login', (req, res, ctx) => {
     // Persist user's authentication in the session
     sessionStorage.setItem('is-authenticated', 'true')
     return res(
@@ -9,7 +9,7 @@ export const handlers = [
       ctx.status(200),
     )
   }),
-  rest.get('/user', (req, res, ctx) => {
+  rest.get('api/user', (req, res, ctx) => {
     // Check if the user is authenticated in this session
     const isAuthenticated = sessionStorage.getItem('is-authenticated')
     if (!isAuthenticated) {
