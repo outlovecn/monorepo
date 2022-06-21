@@ -12,16 +12,11 @@ declare module '@vue/runtime-core' {
     ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
-    ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
-    ATabPane: typeof import('ant-design-vue/es')['TabPane']
-    ATabs: typeof import('ant-design-vue/es')['Tabs']
     Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
-    NavItem: typeof import('./src/components/TopNav/NavItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TabView: typeof import('./src/components/TabView/index.vue')['default']
-    TopNav: typeof import('./src/components/TopNav/index.vue')['default']
   }
 }
 

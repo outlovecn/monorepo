@@ -9,8 +9,14 @@ import './styles/main.css'
 import 'uno.css'
 
 import { worker } from './mocks/browser'
-if (process.env.NODE_ENV === 'development')
-  worker.start()
+if (process.env.NODE_ENV === 'development') {
+  worker.start({
+    onUnhandledRequest: ({ url }) => {
+      if (!url.pathname.startsWith('/api'))
+        return false
+    },
+  })
+}
 
 const routes = setupLayouts(generatedRoutes)
 
