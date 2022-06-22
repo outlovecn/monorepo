@@ -5,6 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AButton: typeof import('ant-design-vue/es')['Button']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
@@ -23,6 +24,7 @@ declare module '@vue/runtime-core' {
     DispatchVoice: typeof import('./src/components/DispatchVoice/index.vue')['default']
     GisMap: typeof import('./src/components/GisMap/index.vue')['default']
     GisSider: typeof import('./src/components/GisSider/index.vue')['default']
+    HandleArea: typeof import('./src/components/HandleArea.vue')['default']
     LoginForm: typeof import('./src/components/LoginForm/index.vue')['default']
     MonitorPlayback: typeof import('./src/components/MonitorPlayback/index.vue')['default']
     MonitorRound: typeof import('./src/components/MonitorRound/index.vue')['default']

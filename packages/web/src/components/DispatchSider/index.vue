@@ -6,7 +6,7 @@
   <div class="dispatch-sider">
     <div class="dispatch-sider-header">
       <div class="text-white">
-        通讯录模块
+        组织架构（群组）
       </div>
     </div>
   </div>

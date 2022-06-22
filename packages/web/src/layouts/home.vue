@@ -1,97 +1,23 @@
 <script lang="ts" setup>
-import DispatchSider from '~/components/DispatchSider/index.vue'
-import DispatchVoice from '~/components/DispatchVoice/index.vue'
-import DispatchArea from '~/components/DispatchArea/index.vue'
-
-import ContactSider from '~/components/ContactSider/index.vue'
-import ContactManage from '~/components/ContactManage/index.vue'
-import ContactScene from '~/components/ContactScene/index.vue'
-
-import MonitorSider from '~/components/MonitorSider/index.vue'
-import MonitorVideo from '~/components/MonitorVideo/index.vue'
-import MonitorRound from '~/components/MonitorRound/index.vue'
-import MonitorWall from '~/components/MonitorWall/index.vue'
-import MonitorPlayback from '~/components/MonitorPlayback/index.vue'
-
-import GisSider from '~/components/GisSider/index.vue'
-import GisMap from '~/components/GisMap/index.vue'
-
 const activeTabKey = ref(0)
-// 导航菜单
-const menus = [
-  // {
-  //   name: '首页',
-  //   path: '/power/home',
-  //   views: [],
-  // },
-  {
-    name: '通讯录',
-    path: '/power/dispatch',
-    siderComponent: DispatchSider,
-    views: [{
-      name: '语音调度',
-      component: DispatchVoice,
-      handleActions: ['呼叫', '语音通拨', '点名', '临时会议', '全部挂断'],
-    }, /* , {
-      name: '通话区域',
-      component: DispatchArea,
-    } */],
-  },
-  {
-    name: '场景会议',
-    path: '/power/contact',
-    siderComponent: ContactSider,
-    views: [{
-      name: '会议管理',
-      component: ContactManage,
-    }, {
-      name: '场景会议',
-      component: ContactScene,
-    }],
-  },
-  {
-    name: '视频监控',
-    path: '/power/monitor',
-    siderComponent: MonitorSider,
-    views: [{
-      name: '监控',
-      component: MonitorVideo,
-    }, {
-      name: '轮巡',
-      component: MonitorRound,
-    }, {
-      name: '电视墙',
-      component: MonitorWall,
-    }, {
-      name: '回放',
-      component: MonitorPlayback,
-    }],
-  },
-  {
-    name: '电子地图',
-    path: '/power/gis',
-    siderComponent: GisSider,
-    views: [{
-      name: '地图',
-      component: GisMap,
-    }],
-  },
-]
+const { menus } = useStoreForMenu()
 interface item {
   key: string
 }
 const router = useRouter()
-const collapsed = ref<boolean>(false)
-const defaultSelectedKeys = menus[0].path
-const selectedKeys = ref<string[]>([defaultSelectedKeys])
 const goto = (item: item) => {
   router.push(item.key)
   activeTabKey.value = 0
 }
 // 侧边栏
+const collapsed = ref<boolean>(false)
+const defaultSelectedKeys = computed(() => {
+  return router.currentRoute.value.path
+})
+const selectedMenuKeys = ref<string[]>([defaultSelectedKeys.value])
 const siderWidth = '300'
 const selectedKey = computed(() => {
-  return selectedKeys.value[0]
+  return selectedMenuKeys.value[0]
 })
 const currentSidebar = computed(() => {
   const item = menus.find(item => item.path === selectedKey.value)
@@ -105,6 +31,11 @@ const currentTabs = computed(() => {
 const onlyOneTab = computed(() => {
   return currentTabs.value.length === 1
 })
+
+// const currentTabHandleActions = computed(() => {
+//   const item = currentTabs.value[activeTabKey.value]
+//   return item ? item.handleActions : []
+// })
 </script>
 
 <template>
@@ -116,7 +47,7 @@ const onlyOneTab = computed(() => {
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
         <a-menu
-          v-model:selectedKeys="selectedKeys"
+          v-model:selectedKeys="selectedMenuKeys"
           theme="dark"
           mode="horizontal"
           :style="{ lineHeight: '64px' }"
