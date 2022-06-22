@@ -6,7 +6,7 @@
 
   * config （子项目公共配置
   * utils （子项目工具集
-  * web （测试的web项目
+  * web （web项目 本次开发的项目目录
   * （其他项目
 * commitlint.config.js （commitlint、cz-git配置
 * package.json （项目描述文件
@@ -31,7 +31,7 @@
 
 ### 启动项目
 
-确认node及pnpm版本后，执行命令
+确认node及pnpm版本后，在项目根目录执行命令
 
 ```bash
 ## 安装依赖
@@ -39,7 +39,6 @@ pnpm i
 ## 启动子项目的dev脚本，成功后会打开浏览器
 pnpm dev
 ```
-
 
 ### 约束
 
