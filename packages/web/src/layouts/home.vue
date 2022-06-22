@@ -23,7 +23,13 @@ const currentSidebar = computed(() => {
   const item = menus.find(item => item.path === selectedKey.value)
   return item ? item.siderComponent : ''
 })
-
+const currentHandleActions = computed(() => {
+  const item = menus.find(item => item.path === selectedKey.value)?.handleActions
+  return item || []
+})
+const showCurrentHandleActions = computed(() => {
+  return currentHandleActions.value.length > 0
+})
 // Tab 区域
 const currentTabs = computed(() => {
   return menus.find(item => item.path === selectedKey.value)?.views || []
@@ -31,11 +37,6 @@ const currentTabs = computed(() => {
 const onlyOneTab = computed(() => {
   return currentTabs.value.length === 1
 })
-
-// const currentTabHandleActions = computed(() => {
-//   const item = currentTabs.value[activeTabKey.value]
-//   return item ? item.handleActions : []
-// })
 </script>
 
 <template>
@@ -60,8 +61,8 @@ const onlyOneTab = computed(() => {
       </a-layout-header>
       <a-layout-content>
         <div class="relative p-sm h-full">
-          <div class="bottom-0 right-0 w-full">
-            <HandleArea />
+          <div v-if="showCurrentHandleActions" class="bottom-0 right-0 w-full">
+            <HandleArea :actions="currentHandleActions" />
           </div>
           <component :is="currentTabs[0].component" v-if="onlyOneTab" />
           <a-tabs v-else v-model:activeKey="activeTabKey">
