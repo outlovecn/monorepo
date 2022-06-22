@@ -4,6 +4,6 @@
 
 <template>
   <div>
-    <slot />
+    通讯卡片
   </div>
 </template>

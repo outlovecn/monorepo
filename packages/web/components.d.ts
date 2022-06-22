@@ -5,12 +5,6 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AButton: typeof import('ant-design-vue/es')['Button']
-    ADivider: typeof import('ant-design-vue/es')['Divider']
-    AForm: typeof import('ant-design-vue/es')['Form']
-    AFormItem: typeof import('ant-design-vue/es')['FormItem']
-    AInput: typeof import('ant-design-vue/es')['Input']
-    AInputPassword: typeof import('ant-design-vue/es')['InputPassword']
     ALayout: typeof import('ant-design-vue/es')['Layout']
     ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
     ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
@@ -24,6 +18,7 @@ declare module '@vue/runtime-core' {
     ContactSider: typeof import('./src/components/ContactSider/index.vue')['default']
     Counter: typeof import('./src/components/Counter.vue')['default']
     DispatchArea: typeof import('./src/components/DispatchArea/index.vue')['default']
+    DispatchCard: typeof import('./src/components/DispatchCard.vue')['default']
     DispatchSider: typeof import('./src/components/DispatchSider/index.vue')['default']
     DispatchVoice: typeof import('./src/components/DispatchVoice/index.vue')['default']
     GisMap: typeof import('./src/components/GisMap/index.vue')['default']
@@ -36,7 +31,6 @@ declare module '@vue/runtime-core' {
     MonitorWall: typeof import('./src/components/MonitorWall/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TabView: typeof import('./src/components/TabView/index.vue')['default']
     TopUtils: typeof import('./src/components/TopUtils.vue')['default']
   }
 }
