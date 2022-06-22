@@ -20,7 +20,10 @@
     "test": "pnpm --filter '*' test"
   },
   "dependencies": {
-    "ant-design-vue": "^3.2.0"
+    "ant-design-vue": "^3.2.0",
+    "pinia": "2.0.12",
+    "vue": "^3.2.37",
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.1",

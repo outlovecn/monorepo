@@ -16,11 +16,17 @@ importers:
       eslint: ^8.17.0
       husky: ^8.0.1
       lint-staged: ^13.0.2
+      pinia: 2.0.12
       pnpm: ^7.2.1
       typescript: ^4.7.3
       vite-plugin-vue-layouts: ^0.6.0
+      vue: ^3.2.37
+      vue-router: ^4.0.16
     dependencies:
       ant-design-vue: 3.2.7_vue@3.2.37
+      pinia: 2.0.12_vcmyupim4cga7k7f5hngmth5py
+      vue: 3.2.37
+      vue-router: 4.0.16_vue@3.2.37
     devDependencies:
       '@antfu/eslint-config': 0.25.1_ud6rd4xtew5bv4yhvkvu24pzm4
       '@changesets/changelog-git': 0.1.11
@@ -57,6 +63,7 @@ importers:
       eslint: ^8.17.0
       jsdom: ^19.0.0
       msw: ^0.42.1
+      pinia: 2.0.12
       pnpm: ^7.2.1
       typescript: ^4.7.3
       unocss: ^0.39.0
@@ -72,6 +79,7 @@ importers:
     dependencies:
       '@vueuse/core': 8.7.3_vue@3.2.37
       ant-design-vue: 3.2.7_vue@3.2.37
+      pinia: 2.0.12_vcmyupim4cga7k7f5hngmth5py
       vue: 3.2.37
       vue-router: 4.0.16_vue@3.2.37
     devDependencies:
@@ -4915,6 +4923,24 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /pinia/2.0.12_vcmyupim4cga7k7f5hngmth5py:
+    resolution: {integrity: sha512-tUeuYGFrLU5irmGyRAIxp35q1OTcZ8sKpGT4XkPeVcG35W4R6cfXDbCGexzmVqH5lTQJJTXXbNGutIu9yS5yew==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.1.4
+      typescript: 4.7.3
+      vue: 3.2.37
+      vue-demi: 0.13.1_vue@3.2.37
+    dev: false
+
   /pkg-dir/4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
@@ -5804,7 +5830,6 @@ packages:
     resolution: {integrity: sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /ufo/0.8.4:
     resolution: {integrity: sha512-/+BmBDe8GvlB2nIflWasLLAInjYG0bC9HRnfEpNi4sw77J2AJNnEVnTDReVrehoh825+Q/evF3THXTAweyam2g==}
