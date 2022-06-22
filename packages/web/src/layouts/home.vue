@@ -16,7 +16,7 @@ import MonitorPlayback from '~/components/MonitorPlayback/index.vue'
 import GisSider from '~/components/GisSider/index.vue'
 import GisMap from '~/components/GisMap/index.vue'
 
-const activeKey = ref(0)
+const activeTabKey = ref(0)
 // 导航菜单
 const menus = [
   // {
@@ -25,16 +25,17 @@ const menus = [
   //   views: [],
   // },
   {
-    name: '通讯调度',
+    name: '通讯录',
     path: '/power/dispatch',
     siderComponent: DispatchSider,
     views: [{
       name: '语音调度',
       component: DispatchVoice,
-    }, {
+      handleActions: ['呼叫', '语音通拨', '点名', '临时会议', '全部挂断'],
+    }, /* , {
       name: '通话区域',
       component: DispatchArea,
-    }],
+    } */],
   },
   {
     name: '场景会议',
@@ -85,7 +86,7 @@ const defaultSelectedKeys = menus[0].path
 const selectedKeys = ref<string[]>([defaultSelectedKeys])
 const goto = (item: item) => {
   router.push(item.key)
-  activeKey.value = 0
+  activeTabKey.value = 0
 }
 // 侧边栏
 const siderWidth = '300'
@@ -127,9 +128,12 @@ const onlyOneTab = computed(() => {
         </a-menu>
       </a-layout-header>
       <a-layout-content>
-        <div class="p-sm">
+        <div class="relative p-sm h-full">
+          <div class="bottom-0 right-0 w-full">
+            <HandleArea />
+          </div>
           <component :is="currentTabs[0].component" v-if="onlyOneTab" />
-          <a-tabs v-else v-model:activeKey="activeKey">
+          <a-tabs v-else v-model:activeKey="activeTabKey">
             <a-tab-pane v-for="{ name, component }, i in currentTabs" :key="i" :tab="name">
               <component :is="component" />
             </a-tab-pane>
