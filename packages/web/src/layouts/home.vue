@@ -43,7 +43,9 @@ const onlyOneTab = computed(() => {
   <a-layout style="min-height: 100vh">
     <a-layout-sider v-model:collapsed="collapsed" collapsible :width="siderWidth">
       <div class="home-logo" />
-      <component :is="currentSidebar" />
+      <div class="px-3">
+        <component :is="currentSidebar" />
+      </div>
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">

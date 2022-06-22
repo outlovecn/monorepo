@@ -5,7 +5,7 @@
 <template>
   <div class="dispatch-sider">
     <div class="dispatch-sider-header">
-      <div class="text-white">
+      <div class="text-gray-500">
         监控区域
       </div>
     </div>
